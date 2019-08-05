@@ -1,273 +1,185 @@
-(function ($) {
+<!doctype html>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
 
-    $.fn.flexisel = function (options) {
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--webfont-->
+<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+<!--dropdown-->
+<script src="https://raw.githubusercontent.com/JuliaBenayachi/HEISSE/master/jquery-1.11.1.min.js"></script>
 
-        var defaults = $.extend({
-    		visibleItems: 4,
-    		animationSpeed: 200,
-    		autoPlay: false,
-    		autoPlaySpeed: 3000,    		
-    		pauseOnHover: true,
-			setMaxWidthAndHeight: false,
-    		enableResponsiveBreakpoints: false,
-    		responsiveBreakpoints: { 
-	    		portrait: { 
-	    			changePoint:480,
-	    			visibleItems: 1
-	    		}, 
-	    		landscape: { 
-	    			changePoint:640,
-	    			visibleItems: 2
-	    		},
-	    		tablet: { 
-	    			changePoint:768,
-	    			visibleItems: 3
-	    		}
-        	}
-        }, options);
-        
-		/******************************
-		Private Variables
-		*******************************/         
-        
-        var object = $(this);
-		var settings = $.extend(defaults, options);        
-		var itemsWidth; // Declare the global width of each item in carousel
-		var canNavigate = true; 
-        var itemsVisible = settings.visibleItems; 
-        
-		/******************************
-		Public Methods
-		*******************************/        
-        
-        var methods = {
-        		
-			init: function() {
-				
-        		return this.each(function () {
-        			methods.appendHTML();
-        			methods.setEventHandlers();      			
-        			methods.initializeItems();
-				});
-			},
 
-			/******************************
-			Initialize Items
-			*******************************/			
-			
-			initializeItems: function() {
-				
-				var listParent = object.parent();
-				var innerHeight = listParent.height(); 
-				var childSet = object.children();
-				
-    			var innerWidth = listParent.width(); // Set widths
-    			itemsWidth = (innerWidth)/itemsVisible;
-    			childSet.width(itemsWidth);
-    			childSet.last().insertBefore(childSet.first());
-    			childSet.last().insertBefore(childSet.first());
-    			object.css({'left' : -itemsWidth}); 
+<div class="header">
+	<div class='container'>
+		<div class="header_left">
+			<img src="https://lh3.googleusercontent.com/-E1voghd7xpA/XUhOqCtqdlI/AAAAAAAAAVY/lmWtWNIcraQ6pvEG3478wjRAUJUqzlLUwCLcBGAs/h120/rate.png" alt=""/>
+		</div>
+		<div class="logo">
+			<a href="index.html"><img src="https://lh3.googleusercontent.com/-EurOB-rqers/XUhOnK2zcfI/AAAAAAAAAUs/kgzw2H10NCsSTyFnOoaNuH6rjS41v8DswCLcBGAs/h120/logo.png" alt=""/>
+				<span>Heisse Treffen</span>
+			</a>
+		</div>
+		<div class="header_right">
+			<ul class="header_user_info">
+			  <a class="login" href="login.html">
+				<li class="user_desc"><span class="m_1">Already user ? </span>Login</li>
+				<i class="user"> </i> 
+				<div class="clearfix"> </div>
+			  </a>
+			  <div class="clearfix"> </div>
+	    	</ul>
+			<a href="register.html" class="btn1 btn-1 btn1-1b">Sign Up</a>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+</div>
+<div class="profile_banner">
+	<div class="container"> 
+	   <h3>Profile</h3>
+	</div>
+</div>
+<div class="profile">
+	<div class="container">
+		<div class="col-md-8 profile_left">
+			<div class="lsidebar span_1_of_profile">
+			  <div class="grid_4">
+			    <img src="https://lh3.googleusercontent.com/-TdcBdBXBeXQ/XUhOnQB3pvI/AAAAAAAAAU0/RsGYMc8XuBkde9O3Y1gpFkoJlqMT-pMvQCLcBGAs/h120/pic1.jpg" class="img-responsive" alt=""/>
+				<ul class="category_desc1">
+				   <li class="cate_head">1.100 votes</li>
+				   <li class="cate_right">
+				   	 <ul class="list1">
+				   	    <li><a href="#"><i class="heart"> </i></a></li>
+				   	    <li><a href="#"><i class="heart"> </i></a></li>
+				   	   
+				   	 </ul>
+				   </li>
+				   <div class="clearfix"> </div>
+				</ul>
+			   </div>
+			</div>
+			<div class="cont span_2_of_profile">
+				<h4><a href="#">Leonardo ,</a>Manager-usa</h4>	
+				<table class="profile-fields">
+					<tbody>
+									<tr>
+							<th>Gender</th>
+							<td>man</td>
+						</tr>
+												<tr>
+							<th>Age</th>
+							<td>25</td>
+						</tr>			
+						<tr>
+							<th>Country</th>
+							<td>Usa</td>
+						</tr>
+						<tr>
+							<th>City</th>
+							<td>Newyork</td>
+						</tr>
+					</tbody>
+				</table>
+	        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, </p>
+			<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis</p>
+		    </div>
+			<div class="clearfix"></div>	
+		</div>
+	    <div class="col-md-4">
+		  <h4 class="m_4">Top Members</h4>
+			<ul id="flexiselDemo3">
+			  <li><img src="https://lh3.googleusercontent.com/-3IKmXjGOFtQ/XUhOnxHDMUI/AAAAAAAAAU8/j3l6NozxsOwLamrcvOIXGEDJoeMSuryOgCLcBGAs/h120/pic2.jpg" class="img-responsive" alt=""/></li>
+			  <li><img src="https://lh3.googleusercontent.com/-TdcBdBXBeXQ/XUhOnQB3pvI/AAAAAAAAAU0/RsGYMc8XuBkde9O3Y1gpFkoJlqMT-pMvQCLcBGAs/h120/pic1.jpg" class="img-responsive" alt=""/></li>
+			  <li><img src="https://lh3.googleusercontent.com/-TdcBdBXBeXQ/XUhOnQB3pvI/AAAAAAAAAU0/RsGYMc8XuBkde9O3Y1gpFkoJlqMT-pMvQCLcBGAs/h120/pic1.jpg" class="img-responsive" alt=""/></li>				   
+		   </ul>
+				    <script type="text/javascript">
+					 $(window).load(function() {
+						$("#flexiselDemo3").flexisel({
+							visibleItems: 3,
+							animationSpeed: 1000,
+							autoPlay: true,
+							autoPlaySpeed: 3000,    		
+							pauseOnHover: true,
+							enableResponsiveBreakpoints: true,
+					    	responsiveBreakpoints: { 
+					    		portrait: { 
+					    			changePoint:480,
+					    			visibleItems: 2
+					    		}, 
+					    		landscape: { 
+					    			changePoint:640,
+					    			visibleItems: 3
+					    		},
+					    		tablet: { 
+					    			changePoint:768,
+					    			visibleItems: 4
+					    		}
+					    	}
+					    });
+					    
+					});
+				   </script>
+				   <script type="text/javascript" src="https://raw.githubusercontent.com/JuliaBenayachi/HEISSE/master/jquery.flexisel.js"></script>
+				   <h4 class="recent">Recently Active user Groups</h4>
+				   <ul id="flexiselDemo1">
+						<li><img src="https://lh3.googleusercontent.com/-TdcBdBXBeXQ/XUhOnQB3pvI/AAAAAAAAAU0/RsGYMc8XuBkde9O3Y1gpFkoJlqMT-pMvQCLcBGAs/h120/pic1.jpg" /><div class="grid-flex"><a href="#">Syenergy 2mm</a><p>0 friend</p></div></li>
+						<li><img src="https://lh3.googleusercontent.com/-3IKmXjGOFtQ/XUhOnxHDMUI/AAAAAAAAAU8/j3l6NozxsOwLamrcvOIXGEDJoeMSuryOgCLcBGAs/h120/pic2.jpg" /><div class="grid-flex"><a href="#">Surf Yoke</a><p>10 friends</p></div></li>
+						<li><img src="https://lh3.googleusercontent.com/-4W47Um6FOwk/XUhOn8O1GiI/AAAAAAAAAU4/M7XSu8jl9GM0v5eTN-ArKQbBCA1gxpMMwCLcBGAs/h120/pic3.jpg" /><div class="grid-flex"><a href="#">Salty Daiz</a><p>1 friend</p></div></li>
+						<li><img src="https://lh3.googleusercontent.com/-RThOEu22JMA/XUhOo-NKgzI/AAAAAAAAAVE/UU2Csa6H5nc8aeMsGPlG-Z5P3vc9D08bwCLcBGAs/h120/pic5.jpg" /><div class="grid-flex"><a href="#">Cheeky Zane</a><p>0 friend</p></div></li>
+						<li><img src="https://lh3.googleusercontent.com/-TdcBdBXBeXQ/XUhOnQB3pvI/AAAAAAAAAU0/RsGYMc8XuBkde9O3Y1gpFkoJlqMT-pMvQCLcBGAs/h120/pic1.jpg" /><div class="grid-flex"><a href="#">Synergy</a><p>0 friend</p></div></li>
+				     </ul>
+				    <script type="text/javascript">
+					 $(window).load(function() {
+						$("#flexiselDemo1").flexisel({
+							visibleItems: 3,
+							animationSpeed: 1000,
+							autoPlay: true,
+							autoPlaySpeed: 3000,    		
+							pauseOnHover: true,
+							enableResponsiveBreakpoints: true,
+					    	responsiveBreakpoints: { 
+					    		portrait: { 
+					    			changePoint:480,
+					    			visibleItems: 2
+					    		}, 
+					    		landscape: { 
+					    			changePoint:640,
+					    			visibleItems: 3
+					    		},
+					    		tablet: { 
+					    			changePoint:768,
+					    			visibleItems: 4
+					    		}
+					    	}
+					    });
+					    
+					});
+				   </script>
+		  </div>
+	</div>
+</div>
+<div class="footer">
+	<div class="container">
+		<div class="cssmenu">
+		  <ul>
+			<li class="active"><a href="#">Home</a></li> 
+			<li><a href="about.html">About</a></li>
+			<li><a href="profiles.html">Add Profile</a></li>
+			<li><a href="contact.html">Contact</a></li>
+		  </ul>
+	    </div>
+	    <div class="copy">
+			<p>&copy; 2014 Template by <a href="" target="_blank">Heisse Treffen</a></p>
+		</div>
+		<div class="social"> 
+			<ul class="footer_social">
+			  <li><a href="#"> <i class="fb"> </i> </a></li>
+			  <li><a href="#"> <i class="tw"> </i> </a></li>
+		   </ul>
+		</div>
+	    <div class='clearfix'> </div>
+	</div>
+</div>
 
-    			object.fadeIn();
-				$(window).trigger("resize"); // needed to position arrows correctly
-
-			},
-			
-			
-			/******************************
-			Append HTML
-			*******************************/			
-			
-			appendHTML: function() {
-				
-   			 	object.addClass("nbs-flexisel-ul");
-   			 	object.wrap("<div class='nbs-flexisel-container'><div class='nbs-flexisel-inner'></div></div>");
-   			 	object.find("li").addClass("nbs-flexisel-item");
- 
-   			 	if(settings.setMaxWidthAndHeight) {
-	   			 	var baseWidth = $(".nbs-flexisel-item > img").width();
-	   			 	var baseHeight = $(".nbs-flexisel-item > img").height();
-	   			 	$(".nbs-flexisel-item > img").css("max-width", baseWidth);
-	   			 	$(".nbs-flexisel-item > img").css("max-height", baseHeight);
-   			 	}
- 
-   			 	$("<div class='nbs-flexisel-nav-left'></div><div class='nbs-flexisel-nav-right'></div>").insertAfter(object);
-   			 	var cloneContent = object.children().clone();
-   			 	object.append(cloneContent);
-			},
-					
-			
-			/******************************
-			Set Event Handlers
-			*******************************/
-			setEventHandlers: function() {
-				
-				var listParent = object.parent();
-				var childSet = object.children();
-				var leftArrow = listParent.find($(".nbs-flexisel-nav-left"));
-				var rightArrow = listParent.find($(".nbs-flexisel-nav-right"));
-				
-				$(window).on("resize", function(event){
-					
-					methods.setResponsiveEvents();
-					
-					var innerWidth = $(listParent).width();
-					var innerHeight = $(listParent).height(); 
-					
-					itemsWidth = (innerWidth)/itemsVisible;
-					
-					childSet.width(itemsWidth);
-					object.css({'left' : -itemsWidth});
-					
-					var halfArrowHeight = (leftArrow.height())/2;
-					var arrowMargin = (innerHeight/2) - halfArrowHeight;
-					leftArrow.css("top", arrowMargin + "px");
-					rightArrow.css("top", arrowMargin + "px");
-					
-				});					
-				
-				$(leftArrow).on("click", function (event) {
-					methods.scrollLeft();
-				});
-				
-				$(rightArrow).on("click", function (event) {
-					methods.scrollRight();
-				});
-				
-				if(settings.pauseOnHover == true) {
-					$(".nbs-flexisel-item").on({
-						mouseenter: function () {
-							canNavigate = false;
-						}, 
-						mouseleave: function () {
-							canNavigate = true;
-						}
-					 });
-				}
-
-				if(settings.autoPlay == true) {
-					
-					setInterval(function () {
-						if(canNavigate == true)
-							methods.scrollRight();
-					}, settings.autoPlaySpeed);
-				}
-				
-			},
-			
-			/******************************
-			Set Responsive Events
-			*******************************/			
-			
-			setResponsiveEvents: function() {
-				var contentWidth = $('html').width();
-				
-				if(settings.enableResponsiveBreakpoints == true) {
-					if(contentWidth < settings.responsiveBreakpoints.portrait.changePoint) {
-						itemsVisible = settings.responsiveBreakpoints.portrait.visibleItems;
-					}
-					else if(contentWidth > settings.responsiveBreakpoints.portrait.changePoint && contentWidth < settings.responsiveBreakpoints.landscape.changePoint) {
-						itemsVisible = settings.responsiveBreakpoints.landscape.visibleItems;
-					}
-					else if(contentWidth > settings.responsiveBreakpoints.landscape.changePoint && contentWidth < settings.responsiveBreakpoints.tablet.changePoint) {
-						itemsVisible = settings.responsiveBreakpoints.tablet.visibleItems;
-					}
-					else {
-						itemsVisible = settings.visibleItems;
-					}
-				}
-			},			
-			
-			/******************************
-			Scroll Left
-			*******************************/				
-			
-			scrollLeft:function() {
-
-				if(canNavigate == true) {
-					canNavigate = false;
-					
-					var listParent = object.parent();
-					var innerWidth = listParent.width();
-					
-					itemsWidth = (innerWidth)/itemsVisible;
-					
-					var childSet = object.children();
-					
-					object.animate({
-							'left' : "+=" + itemsWidth
-						},
-						{
-							queue:false, 
-							duration:settings.animationSpeed,
-							easing: "linear",
-							complete: function() {  
-								childSet.last().insertBefore(childSet.first()); // Get the first list item and put it after the last list item (that's how the infinite effects is made)   								
-								methods.adjustScroll();
-								canNavigate = true; 
-							}
-						}
-					);
-				}
-			},
-			
-			/******************************
-			Scroll Right
-			*******************************/				
-			
-			scrollRight:function() {
-				
-				if(canNavigate == true) {
-					canNavigate = false;
-					
-					var listParent = object.parent();
-					var innerWidth = listParent.width();
-					
-					itemsWidth = (innerWidth)/itemsVisible;
-					
-					var childSet = object.children();
-					
-					object.animate({
-							'left' : "-=" + itemsWidth
-						},
-						{
-							queue:false, 
-							duration:settings.animationSpeed,
-							easing: "linear",
-							complete: function() {  
-								childSet.first().insertAfter(childSet.last()); // Get the first list item and put it after the last list item (that's how the infinite effects is made)   
-								methods.adjustScroll();
-								canNavigate = true; 
-							}
-						}
-					);
-				}
-			},
-			
-			/******************************
-			Adjust Scroll 
-			*******************************/
-			
-			adjustScroll: function() {
-				
-				var listParent = object.parent();
-				var childSet = object.children();				
-				
-				var innerWidth = listParent.width(); 
-				itemsWidth = (innerWidth)/itemsVisible;
-				childSet.width(itemsWidth);
-				object.css({'left' : -itemsWidth});		
-			}			
-        
-        };
-        
-        if (methods[options]) { 	// $("#element").pluginName('methodName', 'arg1', 'arg2');
-            return methods[options].apply(this, Array.prototype.slice.call(arguments, 1));
-        } else if (typeof options === 'object' || !options) { 	// $("#element").pluginName({ option: 1, option:2 });
-            return methods.init.apply(this);  
-        } else {
-            $.error( 'Method "' +  method + '" does not exist in flexisel plugin!');
-        }        
-};
-
-})(jQuery);
+</!doctype>
